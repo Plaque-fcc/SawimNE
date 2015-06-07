@@ -344,7 +344,7 @@ public class Util {
             c.set(Calendar.DAY_OF_MONTH, Util.strToIntDef(values[0], 0));
             c.set(Calendar.HOUR_OF_DAY, Util.strToIntDef(values[3], 0));
             c.set(Calendar.MINUTE, Util.strToIntDef(values[4], 0));
-            c.set(Calendar.SECOND, 0);
+            c.set(Calendar.SECOND, Util.strToIntDef(values[5], 0));
             return localTimeToGmtTime(c.getTime().getTime() / 1000);
         } catch (Exception ignored) {
             return 0;
@@ -377,7 +377,9 @@ public class Util {
         }
         sb.append(Util.makeTwo(localDate[TIME_HOUR]))
                 .append(':')
-                .append(Util.makeTwo(localDate[TIME_MINUTE]));
+                .append(Util.makeTwo(localDate[TIME_MINUTE]))
+                .append(':')
+                .append(Util.makeTwo(localDate[TIME_SECOND]));
         return sb.toString();
     }
 
